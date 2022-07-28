@@ -109,7 +109,7 @@
     width: 40vw;
     position: absolute;
     z-index: 5;
-    left:15%;
+    left:10%;
     border-radius: 20px;
     box-shadow: 0 14px 65px 6.5px;
     background-image:linear-gradient(to bottom,rgb(242, 144, 39),rgb(238, 157, 59)) ;

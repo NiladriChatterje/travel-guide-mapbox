@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: right;
     align-items: flex-end;
+    padding-top:35px;
 }
 .map-card{
     width: 125px;
@@ -195,6 +196,11 @@ button{
     left:220px;
     background-color: darkgreen;
 }
+#i5{
+    bottom:0;
+    left:280px;
+    background-color: orange;
+}
 .Rating-menu{
     background-color: darkorange;
     width:105px;
@@ -227,18 +233,57 @@ button{
     transition: all;
     transition-duration: 100ms;
 }
+.styleback{
+    background-color: orange;
+    width:600px;
+    height: 600px;
+    top:-50%;
+    left:-30%;
+    position: absolute;
+    z-index: -50;
+    transform: rotate(45deg);
+}
+.styleback1{
+    background-color: rgb(255, 228, 195);
+    width:600px;
+    position: absolute;
+    height: 600px;
+    top:-50%;
+    left:-20%;
+    z-index: -51;
+    transform: rotate(45deg);
+}
 @media all and (max-width:1200px){
     .map-container{
-        width: 65vw;
-        height: 100vh;
+        width: 100vw;
+        height: 97vh;
+        padding-top: 30px ;
         margin: auto;
+        overflow: clip;
         display: flex;
         position: fixed; 
-        background-color: rgb(255, 255, 254);
-        border-radius: 20px;
+        border-radius: 0 0 20px 20px;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        padding-top:-30px;
+    }
+    .styleback{
+        background-color: orange;
+        width:600px;
+        height: 600px;
+        top:-50%;
+        right:-30%;
+        z-index: -50;
+        transform: rotate(45deg);
+    }
+    .styleback1{
+        width:700px;
+        height: 700px;
+        top:-45%;
+        left:-20%;
+        z-index: -51;
+        transform: rotate(45deg);
     }
     .hidden-details{
         margin:auto;
@@ -260,6 +305,7 @@ button{
     .event{
         width:15px;
         height: 15px;
+        margin-left:auto;
     }
 
 }

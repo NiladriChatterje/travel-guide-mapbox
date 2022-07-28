@@ -3,10 +3,9 @@ import Map, {Marker,GeolocateControl, NavigationControl,FullscreenControl} from 
 import './Map.css'
 import Loader from '../Loader/Loader';
 import Close from './close.png';
-import styless from './MapBox.css';
 
 
-const API_KEY='pk.eyJ1IjoibmlsYWRyaTIwMDAiLCJhIjoiY2wxNjF1OTNuMGJueTNjczF5MG12cmZ3OSJ9.-VogjFOddybGUgC8JuBVOw'
+const API_KEY='pk.eyJ1IjoibmlsYWRyaTIwMDAiLCJhIjoiY2w1cDU3Y2N1MDQ4cDNsbnFqN3hiMm1mNyJ9.M5eDdS0HFPq4HvHBj3ktLQ'
 const API_key_weather1 = '87e0714b96ca2e55e775907fa4d6972f';
 const API_key_weather2 = '39a874f4992883caf93f33961b899c1b';
 
@@ -16,7 +15,7 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
     const [data,setData] = React.useState(()=>([]));
     const [isLoading,setIsLoading] = React.useState(() => {return true});
     const [isLocked,setIsLocked] =React.useState(() => false);
-    const [theme,setTheme] =React.useState(()=>'mapbox://styles/niladri2000/cl5tb1xq7000514qs7aqj3rnt');
+    const [theme,setTheme] =React.useState(()=>'mapbox://styles/niladri2000/cl64r4dhz001015n53ts9lmp4');
     const [weather,setWeather] =React.useState(() => {})
 
     function handleEvent(viewstate){
@@ -53,7 +52,9 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
 
     return (
         <div className="map-container">
-         
+         <div class='styleback'></div>
+         <div class='styleback1'></div>
+         <div class='styleback2'></div>
     <Map
       interactive={true}
       maxZoom={isLocked?12:13.5}
@@ -61,7 +62,7 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
       initialViewState={{...viewState}}
       viewState={isInputfieldActive?({...viewState}):undefined}
       onZoom={e => {isLocked?setZoom(12):setZoom(e.viewState.zoom)}}
-      style={{width: '65vw', height: '90vh',display:'flex',alignItems:'center',justifyContent:'center'}}
+      style={{width: '65vw',borderRadius:'18px',boxShadow:'0 6px 18px -1px', height: '88vh',display:'flex',alignItems:'center',justifyContent:'center'}}
       mapStyle={theme}
       onClick={e => {console.log(e);setIsInputfieldActive(false);}}
       onMoveEnd={(e) =>{console.log(e);
@@ -81,6 +82,7 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
       <div className='event' id='i2' onClick={e=> setTheme('mapbox://styles/niladri2000/cl5tb1xq7000514qs7aqj3rnt')}></div>
       <div className='event' id='i3' onClick={e => setTheme('mapbox://styles/niladri2000/cl5wdgzqo002a14pbhtv1gfgi')}></div>
       <div className='event' id='i4' onClick={e => setTheme('mapbox://styles/niladri2000/cl60fwv20002k14liwwbag8b3')}></div>
+      <div className='event' id='i5' onClick={e => setTheme('mapbox://styles/niladri2000/cl64r4dhz001015n53ts9lmp4')}></div>
       
       {zoom<12?<div className="hide-restriction">
       Please Have a minimum Zoom of 12

@@ -4,7 +4,6 @@
   height:88vh;
   margin:25px auto;
   display: flex;
-  overflow: hidden;
   justify-content: space-between;
 }
 #on-load{
@@ -25,8 +24,10 @@
   }to{transform : rotate(360deg);}
   
 }
+
 @media all and (max-width:1200px){
   .App{
+    scrollbar-color: orange;
     overflow-y: auto;
     overflow-x: clip;
     width:95vw;
@@ -34,13 +35,32 @@
     align-items: center;
     margin:auto
   }
+  
   .ListWrapper{
    position: absolute;
    left:1%;
     margin: auto;
   }
 
-  .App::-webkit-scrollbar{
-    display: none;
-  }
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 90px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 154, 13);
+  border-radius: 55px;  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 174, 13);
+}
 }
