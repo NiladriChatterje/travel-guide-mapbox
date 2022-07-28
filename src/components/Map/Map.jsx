@@ -6,7 +6,7 @@ import Close from './close.png';
 import styless from './MapBox.css';
 
 
-const API_KEY='pk.eyJ1IjoibmlsYWRyaTIwMDAiLCJhIjoiY2w1cDU3Y2N1MDQ4cDNsbnFqN3hiMm1mNyJ9.M5eDdS0HFPq4HvHBj3ktLQ'
+const API_KEY='pk.eyJ1IjoibmlsYWRyaTIwMDAiLCJhIjoiY2wxNjF1OTNuMGJueTNjczF5MG12cmZ3OSJ9.-VogjFOddybGUgC8JuBVOw'
 const API_key_weather1 = '87e0714b96ca2e55e775907fa4d6972f';
 const API_key_weather2 = '39a874f4992883caf93f33961b899c1b';
 
