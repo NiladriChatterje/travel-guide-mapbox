@@ -256,7 +256,7 @@ button{
 @media all and (max-width:1200px){
     .map-container{
         width: 100vw;
-        height: 97vh;
+        height: 85vh;
         padding-top: 30px ;
         margin: auto;
         overflow: clip;

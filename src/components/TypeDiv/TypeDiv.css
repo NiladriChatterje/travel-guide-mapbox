@@ -118,15 +118,10 @@
     transition-duration: 200ms;
   }
   
-  @media all and (min-width: 992px) {
-    .section {
-      width: 95vw;
-    }
-  }
   @media all and (max-width:1200px){
     .section{
-      margin-top:205px;
-      margin-left: -55px;
+      margin-top:208px;
+      margin-left: -28px;
       height:45vh;
       width:90vw;
       top:100px;
