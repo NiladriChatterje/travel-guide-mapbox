@@ -30,7 +30,6 @@ function App() {
 
  React.useEffect(() =>{
         HospitalData = require('./hospitalData');
-        let hospitalJson = require('./hospitals.json');
         Universities = require('./universities');
         let temp_univ = require('./final_univ.json');
         
