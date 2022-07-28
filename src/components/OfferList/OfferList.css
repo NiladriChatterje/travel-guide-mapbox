@@ -1,0 +1,115 @@
+.cont{
+    width:60vw;
+    height:500px;
+    position:absolute;
+    top:5%;
+    left:15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 900;
+    border-radius: 0 30px;
+    box-shadow: 0 6px 45px -1px;
+    background-color: rgb(255, 252, 247);
+    transition: all;
+    transition-duration: 200ms;
+    visibility: hidden;
+    overflow-y: auto;
+    
+}
+.cont::-webkit-scrollbar{
+    display:none;
+}
+.no-offer{
+    position: absolute;
+    align-items: center;
+    display: flex;
+    margin-top:100px;
+    width: 10vw;
+    height: 10vh;
+    flex-direction: column;
+}
+.no-offer span:nth-child(2){
+    font-size: larger;
+    font-weight: 1000;
+}
+.Closeimage{
+    background-color: orange;
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    position: relative;
+    top:10px;
+    right:-60px;
+}
+.subContainer{
+    display: flex;
+    
+    
+}
+.subContainer::-webkit-scrollbar{
+    display: none;
+}
+.Heading{
+    background-color:white;
+    width:40vw;
+    box-shadow:0 6px 15px 3px;
+    font-weight:800;
+    font-size:25px;
+    position:sticky;
+    margin-top:0px;
+    display:flex;
+    flex-direction:column;
+    transition:all;
+    transition-duration: 200ms;
+    border-radius:25px;
+}
+.subHeading{
+    padding-left: 20px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width:35vw;
+}
+.Offer-list{
+    display: flex;
+    margin: 15px;
+    width: fit-content;
+    overflow: hidden;
+    justify-content: center;
+    margin-top:10px;
+    border-radius: 15px;
+    background-color: rgb(255, 183, 68);
+    flex-direction: column;
+    box-shadow: 0 5px 10px -3px;
+    
+    justify-content: center;
+}
+@media all and (max-width:1200px){
+    .cont{
+        background-color: rgb(255, 137, 20,1);
+        left:-18px;
+        width:70vw;
+        margin-top:60px;
+        border-radius: 25px;
+    }
+    .Heading{
+        margin-top:0px;
+        width:70vw;
+        position: absolute;
+    }
+    .no-offer{
+        margin-top: 140px;
+    }
+    .subHeading{
+        position: sticky;
+        
+        justify-content: space-between;
+    }
+    .Closeimage{
+        right:-150px;
+    }
+    .underline{
+        margin-left:100px;
+    }
+}

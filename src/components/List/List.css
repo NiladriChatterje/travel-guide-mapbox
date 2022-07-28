@@ -1,0 +1,79 @@
+.List-container{
+    margin-left:5px;
+    width:490px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-geocoding{
+    padding: 25px;
+    width: 100%;
+    text-decoration: none;
+    height: 35px;
+    font-weight: 800;
+    color: gray;
+    border:none ;
+    border-bottom: 2px solid blanchedalmond;
+    border-right: 6px solid blanchedalmond;
+    border-radius: 6px;
+}
+.input-geocoding::-moz-focus-outer{
+    background-color: aquamarine;
+    border-color: rgb(254, 186, 84) ;
+}
+.List-container span{
+    font-size: x-large;
+    font-weight: 800;    
+}
+.sub-List-container{
+    display: flex;
+    align-items: center;
+    column-gap: 20px ;
+    justify-content: space-between;
+}
+.sub-List-container button:nth-child(2){
+    outline: none;
+    border-radius: 5px;
+    width: 150px;
+    height: 40px ;
+    background-color: orange;
+    transition: all;
+    transition-duration: 100ms;
+}
+.sub-List-container button:hover{
+    outline: none;
+    border-radius: 5px;
+    width: 160px;
+    background-color: orange;
+}
+.sub-List-container button:focus{
+    outline:none;
+}
+.list-overflow{
+    margin-top:25px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height:500px;
+}
+.list-overflow::-webkit-scrollbar{
+    display: none;
+}
+@media all and (max-width:1200px){
+    .List-container{width: 94vw;
+        margin-left: 0;
+        padding-top: 10px;
+        position: absolute;
+        margin-top:800px;
+        height:98vh;
+        box-shadow: 0 -5px 25px -1px;
+        margin-left: auto;
+        border-radius: 20px;
+        background-color: rgb(255, 241, 224);
+    }
+    .List-container span{
+        font-size: large;
+    }
+
+}

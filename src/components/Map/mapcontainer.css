@@ -1,0 +1,14 @@
+.container{
+    width: '65vw';
+    height: '90vh';
+    display:'flex';
+    align-items:'center';
+    justify-content:'center';
+}
+
+@media all and (max-width:1200px){
+    .container{
+        width:97vw;
+        margin:auto;
+    }
+}
