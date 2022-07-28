@@ -179,7 +179,7 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
                 style={{fontWeight:600}}>Website: </span>
                 <span
                 style={{fontWeight:200,color:'white',backgroundColor:'orange',borderRadius:'25px',padding:'1px 6px'}}>
-                  <a href={data.WEBSITE} target="_blank" rel="noreferrer"><button>Official WEBSITE</button></a></span>
+                  <a href={data.WEBSITE || data.website} target="_blank" rel="noreferrer"><button>Official WEBSITE</button></a></span>
               </div>): null}
 
               {data.type?(
