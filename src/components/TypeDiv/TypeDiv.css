@@ -106,7 +106,7 @@
     height: 100%;
   }
   .section {
-    width: 40vw;
+    width: 75vw;
     position: absolute;
     z-index: 5;
     left:10%;
