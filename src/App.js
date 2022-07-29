@@ -6,9 +6,9 @@ import TypeDiv from './components/TypeDiv/TypeDiv';
 import getPlacesData from './axios/getPlacesData';
 import OfferList from './components/OfferList/OfferList'
 
-let HospitalData;
-let Universities;
-
+let HospitalData=[];
+let Universities=[];
+let temp_univ=[];
 
 function App() {
   const [viewState, setViewState] = React.useState({latitude: 22.6246939, longitude: 88.4888099});
@@ -16,39 +16,39 @@ function App() {
   const [isLoading,setIsLoading] = React.useState(() => {return true});
   const [type,setType] = React.useState(() => {return 'hospitals'});
   const [places,setPlaces] = React.useState(() => ([]));
-  const [newData,setNewData] =React.useState(() => ([]));
   const [isViewport,setisViewPort]=React.useState(()=>false);
   const [isInputfieldActive,setIsInputfieldActive] = React.useState(()=>false);
   const [zoom,setZoom] = React.useState(()=>11);
-  const [typeDivActive,setTypeDivActive] = React.useState(()=> true);
-  const [search_name,setSearchName] =React.useState(()=>'kolkata');
+  const [_,setTypeDivActive] = React.useState(()=> true);
   const [rating,setRating] = React.useState(() => {return 0});
   const [filteredPlaces,setFilteredPlaces] =React.useState(()=>[]);
-  const [notifications,setNotification] =React.useState(()=>false);
+  const [Universities,setUniver] =React.useState(()=>[])
   
   
 
 
  React.useEffect(() =>{
         HospitalData = require('./hospitalData');
-        Universities = require('./universities');
-        let temp_univ = require('./final_univ.json');
+        setUniver(require('./universities'));
         
-        Universities.push(...temp_univ);
-        
-        
+        console.log(Universities)
 },[]);
 
 React.useEffect(()=>{
+  console.log(places);
   let temp=places.filter((item) => {
     if(Number(item.rating)>rating) return item;
   });
   setFilteredPlaces(temp);
+  // if(type === 'universities') setFilteredPlaces(places);
+  console.log(filteredPlaces);
   if(filteredPlaces.length == 0 && rating!=0)
     setIsLoading(true);
     else{
       setIsLoading(false);
     }
+
+    return ()=>temp=[]
 },[places,rating])
 
 
@@ -75,33 +75,33 @@ React.useEffect(() => {
     setTimeout(() => {
       const data = HospitalData.filter((data)=>{
         if(zoom>= 12 && zoom<= 12.25){
-        if(data.latitude>=viewState.latitude-0.0510 && data.latitude<=viewState.latitude+0.050135975)
+        if(Number(data.latitude)>=viewState.latitude-0.0430 && Number(data.latitude)<=viewState.latitude+0.040135975)
         {
-          if(data.longitude<=viewState.longitude+0.090 && data.longitude>=viewState.longitude-0.088200811)
+          if(Number(data.longitude)<=viewState.longitude+0.090 && Number(data.longitude)>=viewState.longitude-0.084200811)
           {
             return data;
           }
         }}
         if(zoom> 12.25 && zoom<= 12.5){
-          if(data.latitude>=viewState.latitude-0.0410 && data.latitude<=viewState.latitude+0.035135975)
+          if(Number(data.latitude)>=viewState.latitude-0.0410 && Number(data.latitude)<=viewState.latitude+0.035135975)
           {
-            if(data.longitude<=viewState.longitude+0.055 && data.longitude>=viewState.longitude-0.066200811)
+            if(Number(data.longitude)<=viewState.longitude+0.055 && Number(data.longitude)>=viewState.longitude-0.066200811)
             {
               return data;
             }
           }}
         if(zoom> 12.5 && zoom<= 13){
-          if(data.latitude>=viewState.latitude-0.0220 && data.latitude<=viewState.latitude+0.029135975)
+          if(Number(data.latitude)>=viewState.latitude-0.0220 && Number(data.latitude)<=viewState.latitude+0.029135975)
           {
-            if(data.longitude<=viewState.longitude+0.053 && data.longitude>=viewState.longitude-0.055200811)
+            if(Number(data.longitude)<=viewState.longitude+0.053 && Number(data.longitude)>=viewState.longitude-0.055200811)
             {
               return data;
             }
           }}
         if(zoom> 13 && zoom <=13.5){
-          if(data.latitude>=viewState.latitude-0.0196 && data.latitude<=viewState.latitude+0.018835975)
+          if(Number(data.latitude)>=viewState.latitude-0.0196 && Number(data.latitude)<=viewState.latitude+0.018835975)
           {
-            if(data.longitude<=viewState.longitude+0.0277 && data.longitude>=viewState.longitude-0.040200811)
+            if(Number(data.longitude)<=viewState.longitude+0.0277 && Number(data.longitude)>=viewState.longitude-0.040200811)
             {
               return data;
             }
@@ -121,12 +121,14 @@ React.useEffect(() => {
         console.log(places)
       }
       else{
+        let temp=[];
         for(let i = 0; i<=20; i++)
         {
-         setNewData(...newData,data[i]);
-          setPlaces(newData);
-          setIsLoading(false);
+          temp.push(data[i])
+          
         }
+        setPlaces(temp);
+          setIsLoading(false);
       }
     },2000);
 
@@ -136,41 +138,41 @@ React.useEffect(() => {
     setTimeout(()=>{ 
     const data=Universities.filter((data) =>{
       if(zoom>= 12 && zoom<= 12.25){
-        if(data.latitude>=viewState.latitude-0.0510 && data.latitude<=viewState.latitude+0.050135975)
+        if(Number(data.latitude)>=viewState.latitude-0.0430 && Number(data.latitude)<=viewState.latitude+0.040135975)
         {
-          if(data.longitude<=viewState.longitude+0.090 && data.longitude>=viewState.longitude-0.090200811)
+          if(Number(data.longitude)<=viewState.longitude+0.090 && Number(data.longitude)>=viewState.longitude-0.083200811)
           {
             return data;
           }
         }}
         if(zoom> 12.25 && zoom<= 12.5){
-          if(data.latitude>=viewState.latitude-0.0410 && data.latitude<=viewState.latitude+0.035135975)
+          if(Number(data.latitude)>=viewState.latitude-0.0410 && Number(data.latitude)<=viewState.latitude+0.035135975)
           {
-            if(data.longitude<=viewState.longitude+0.055 && data.longitude>=viewState.longitude-0.066200811)
+            if(Number(data.longitude)<=viewState.longitude+0.055 && Number(data.longitude)>=viewState.longitude-0.066200811)
             {
               return data;
             }
           }}
         if(zoom> 12.5 && zoom<= 12.75){
-          if(data.latitude>=viewState.latitude-0.0250 && data.latitude<=viewState.latitude+0.029135975)
+          if(Number(data.latitude)>=viewState.latitude-0.0250 && Number(data.latitude)<=viewState.latitude+0.029135975)
           {
-            if(data.longitude<=viewState.longitude+0.053 && data.longitude>=viewState.longitude-0.055200811)
+            if(Number(data.longitude)<=viewState.longitude+0.053 && Number(data.longitude)>=viewState.longitude-0.055200811)
             {
               return data;
             }
           }}
           if(zoom> 12.75 && zoom<= 13){
-            if(data.latitude>=viewState.latitude-0.0220 && data.latitude<=viewState.latitude+0.024135975)
+            if(Number(data.latitude)>=viewState.latitude-0.0220 && Number(data.latitude)<=viewState.latitude+0.024135975)
             {
-              if(data.longitude<=viewState.longitude+0.048 && data.longitude>=viewState.longitude-0.051400811)
+              if(Number(data.longitude)<=viewState.longitude+0.048 && Number(data.longitude)>=viewState.longitude-0.051400811)
               {
                 return data;
               }
             }}
         if(zoom> 13 && zoom <=13.5){
-          if(data.latitude>=viewState.latitude-0.0196 && data.latitude<=viewState.latitude+0.018835975)
+          if(Number(data.latitude)>=viewState.latitude-0.0196 && Number(data.latitude)<=viewState.latitude+0.018835975)
           {
-            if(data.longitude<=viewState.longitude+0.0397 && data.longitude>=viewState.longitude-0.040200811)
+            if(Number(data.longitude)<=viewState.longitude+0.0397 && Number(data.longitude)>=viewState.longitude-0.040200811)
             {
               return data;
             }
@@ -179,32 +181,33 @@ React.useEffect(() => {
     });
 
  
-
+    console.log(data);
     if(data.length === 0)
     {  setPlaces([]);
       setIsLoading(true);
     }
-    if(data.length <= 20)
+    else if(data.length <= 20)
     {  setPlaces(data);
       setIsLoading(false);
     }
     else{
+      let temp=[];
       for(let i = 0; i<=20; i++)
       {
-       setNewData(...newData,data[i]);
-        setPlaces(newData);
-        setIsLoading(false);
+       temp.push(data[i])
       }
+      setPlaces(data);
+        setIsLoading(false);
     }
-  },5000);
+  },2000);
   }    
   else{
     
    let data=[{name:"Random", latitude:22.22 , longitude: 88.22, location_id:1, rating:3,photo:0},{name:"Hello", latitude: 45,longitude: 90,location_id:2,photo:0}]
     if(zoom>=12 && zoom<12.25)
     {
-      let viewState1 = {latitude: viewState.latitude-0.0510,longitude: viewState.longitude - 0.090200811}
-      let viewState2 = {latitude: viewState.latitude+0.050135975, longitude: viewState.longitude+0.090}
+      let viewState1 = {latitude: viewState.latitude-0.0490,longitude: viewState.longitude - 0.083200811}
+      let viewState2 = {latitude: viewState.latitude+0.040135975, longitude: viewState.longitude+0.090}
 
       getPlacesData(type, viewState1, viewState2).then(data => {
         console.log(data);
@@ -260,8 +263,7 @@ React.useEffect(() => {
  
 
 }
-}
-return () => (setNewData([]));}, [type, viewState]);
+}}, [type, viewState]);
 
 
 React.useEffect(()=>{
@@ -275,7 +277,7 @@ React.useEffect(()=>{
     <div >
       <div className='heading-name'>
       <span >Traveli-</span><span>O</span></div>
-    <TypeDiv setType={setType} setRating={setRating}/>
+    <TypeDiv setType={setType} setRating={setRating} setFilteredPlaces={setFilteredPlaces} />
     <OfferList places={places} type={type}/>
     <div className="App" onScroll={e => console.log(e)}>
       
