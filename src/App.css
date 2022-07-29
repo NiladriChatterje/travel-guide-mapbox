@@ -6,6 +6,24 @@
   display: flex;
   justify-content: space-between;
 }
+.heading-name{
+  display:flex;
+  transition:all;
+  transition-duration:500ms;
+  position: absolute;
+  top:-20px;
+  left:10%;
+
+}
+.heading-name span:nth-child(1){
+  font-size: xx-large;
+  font-weight: 700;
+}
+.heading-name span:nth-child(2){
+  font-size: 2em ;
+  color:darkorange;
+  font-weight:900;
+}
 #on-load{
   background-color:red;
   width:400px;
@@ -35,7 +53,15 @@
     align-items: center;
     margin:auto
   }
-  
+  .heading-name{
+    margin:auto;
+    position:fixed;
+    z-index:1;
+    padding-top:20px;
+    left:0;
+    width:100%;
+    background-color: white;
+  }
   .ListWrapper{
    position: absolute;
    left:1%;

@@ -262,6 +262,8 @@ React.useEffect(()=>{
 
   return (
     <div >
+      <div className='heading-name'>
+      <span >Traveli-</span><span>O</span></div>
     <TypeDiv setType={setType} />
     <OfferList places={places} type={type}/>
     <div className="App" onScroll={e => console.log(e)}>

@@ -4,6 +4,7 @@
     justify-content: right;
     align-items: flex-end;
     padding-top:35px;
+    margin-top:30px;
 }
 .map-card{
     width: 125px;
@@ -257,7 +258,7 @@ button{
     .map-container{
         width: 100vw;
         height: 85vh;
-        padding-top: 30px ;
+        padding-top: 60px ;
         margin: auto;
         overflow: clip;
         display: flex;
@@ -266,7 +267,6 @@ button{
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        padding-top:-30px;
     }
     .styleback{
         background-color: orange;
