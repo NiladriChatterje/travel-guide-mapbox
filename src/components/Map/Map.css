@@ -276,11 +276,17 @@ button{
     justify-content: space-between;
     }
     .Rating-menu{
+        cursor: pointer;
         position: relative;
         left:-10px;
         padding:3px 6px;
     }
+    .Rating-menu:active{
+        cursor: progress;
+        
+    }
     .rating-submenu{
+        cursor: pointer;
         margin-top:-140px;
     }
     .styleback{
