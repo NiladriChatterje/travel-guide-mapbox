@@ -281,6 +281,9 @@ button{
         left:-10px;
         padding:3px 6px;
     }
+    .Rating-menu:hover{
+        cursor:pointer;
+    }
     .Rating-menu:active{
         cursor: progress;
         
