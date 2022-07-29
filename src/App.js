@@ -8,7 +8,6 @@ import OfferList from './components/OfferList/OfferList'
 
 let HospitalData;
 let Universities;
-let filteredPlaces;
 
 
 function App() {
@@ -24,6 +23,8 @@ function App() {
   const [typeDivActive,setTypeDivActive] = React.useState(()=> true);
   const [search_name,setSearchName] =React.useState(()=>'kolkata');
   const [rating,setRating] = React.useState(() => {return 0});
+  const [filteredPlaces,setFilteredPlaces] =React.useState(()=>[]);
+  const [notifications,setNotification] =React.useState(()=>false);
   
   
 
@@ -38,7 +39,17 @@ function App() {
         
 },[]);
 
-
+React.useEffect(()=>{
+  let temp=places.filter((item) => {
+    if(Number(item.rating)>rating) return item;
+  });
+  setFilteredPlaces(temp);
+  if(filteredPlaces.length == 0 && rating!=0)
+    setIsLoading(true);
+    else{
+      setIsLoading(false);
+    }
+},[places,rating])
 
 
 React.useEffect(() => {
@@ -51,7 +62,7 @@ React.useEffect(() => {
   );
 }, []);
 
- 
+
   
 
 
@@ -264,14 +275,15 @@ React.useEffect(()=>{
     <div >
       <div className='heading-name'>
       <span >Traveli-</span><span>O</span></div>
-    <TypeDiv setType={setType} />
+    <TypeDiv setType={setType} setRating={setRating}/>
     <OfferList places={places} type={type}/>
     <div className="App" onScroll={e => console.log(e)}>
       
     <MapBox
+    setRating={setRating}
     setZoom={setZoom}
     zoom={zoom}
-    places={zoom>=12?places:[]} 
+    places={zoom>=12?(filteredPlaces?filteredPlaces:places):[]} 
     viewState={viewState} 
     setViewState={setViewState}
     timer={timer}
@@ -282,7 +294,8 @@ React.useEffect(()=>{
 
    
     <List 
-      places = {zoom>=12?(places):[]}
+    setRating={setRating}
+      places = {zoom>=12?(filteredPlaces?filteredPlaces:places):[]}
       setIsLoading={setIsLoading}
       isLoading={isLoading}
       viewState={viewState}

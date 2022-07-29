@@ -361,8 +361,43 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
 })}
       
     </Map>
-    <div style={{display:'flex',justifyContent:'center'}}>
-    
+    <div className="button-group">
+    <div className='Rating-menu'
+    onClick={(e)=>{e.stopPropagation();
+      Array.from(document.getElementsByClassName('rating-submenu'))[0].style.visibility='visible';
+      Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(1,1)';
+    }}
+    > <span style={{color:'white', fontWeight:'900',zIndex:-1}}>Ratings</span>
+        <div className="rating-submenu">
+          <div className="rating-items" onClick={(e)=>{e.stopPropagation();
+        Array.from(document.getElementsByClassName('rating-submenu'))[0].style.visibility='hidden';
+        Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(0,0)';
+        setRating(0);
+
+      }
+        }>All</div>
+          <div className="rating-items"onClick={(e)=>{e.stopPropagation();
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.visibility='hidden';
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(0,0)';
+          setRating(2);
+          }}>2.0 and above</div>
+          <div className="rating-items"onClick={(e)=>{e.stopPropagation();
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.visibility='hidden';
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(0,0)';
+          setRating(3);
+          }}>3.0 and above</div>
+          <div className="rating-items"onClick={(e)=>{e.stopPropagation();
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.visibility='hidden';
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(0,0)';
+          setRating(4);
+          }}>4.0 and above</div>
+          <div className="rating-items"onClick={(e)=>{e.stopPropagation();
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.visibility='hidden';
+          Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(0,0)';
+          setRating(4.5);
+          }}>4.5 and above</div>
+        </div>
+    </div>
     <button 
     onClick={()=>{
       Array.from(document.getElementsByClassName('cont'))[0].style.visibility='visible';

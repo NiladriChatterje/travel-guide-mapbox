@@ -3,7 +3,7 @@ import { FiChevronRight, FiChevronLeft } from 'react-icons/fi';
 import Close from '../Map/close.png';
 import './TypeDiv.css';
 
-function TypeDiv({setType}) {
+function TypeDiv({setType,setFilteredPlaces,setRating}) {
   const [typeList,setTypeList] = useState(()=>([
         {type: 'hospitals',image:'https://digitalhospital.com.sg/wp-content/uploads/2020/05/cropped-Digital-Hospital-Logo-FavIcon-2.png'},
         {type: 'universities',image:'https://i.pinimg.com/736x/d9/85/a1/d985a1d35992337b49591fc0be98e16d.jpg'},
@@ -69,6 +69,7 @@ function TypeDiv({setType}) {
                 let category=Array.from(document.getElementsByClassName('section'));
                 category[0].style.transform="translate(0,-500px)";
                 category[0].style.visibility='hidden';
+                setRating(0);setFilteredPlaces([]);
                 }}>
               <img src={person.image} alt={person.type} className="person-img" /> 
               <h1>{person.type}</h1>

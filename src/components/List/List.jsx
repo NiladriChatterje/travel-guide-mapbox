@@ -5,8 +5,7 @@ import Loader2 from '../Loader2/Loader2';
 import InputField from '../InputField/InputField';
 
 export default function List({places,setIsLoading,isLoading,setViewState,setIsInputfieldActive,setDivActive}){
-   
-
+ 
     return (
         <div className="List-container">
             <div className="sub-List-container">
