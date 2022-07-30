@@ -1,14 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import './App.css';
 import MapBox from './components/Map/Map';
 import List from './components/List/List';
 import TypeDiv from './components/TypeDiv/TypeDiv';
 import getPlacesData from './axios/getPlacesData';
 import OfferList from './components/OfferList/OfferList'
-
-let HospitalData=[];
-let Universities=[];
-let temp_univ=[];
 
 function App() {
   const [viewState, setViewState] = React.useState({latitude: 22.6246939, longitude: 88.4888099});
@@ -22,27 +18,24 @@ function App() {
   const [_,setTypeDivActive] = React.useState(()=> true);
   const [rating,setRating] = React.useState(() => {return 0});
   const [filteredPlaces,setFilteredPlaces] =React.useState(()=>[]);
-  const [Universities,setUniver] =React.useState(()=>[])
+  const [Universities,setUniver] =React.useState(()=> Array(...require('./universities')))
+  const [HospitalData,setHospitalData] =React.useState(()=> Array(...require('./hospitalData')));
   
   
 
 
  React.useEffect(() =>{
-        HospitalData = require('./hospitalData');
-        setUniver(require('./universities'));
-        
+       console.log(HospitalData);        
         console.log(Universities)
 },[]);
 
 React.useEffect(()=>{
-  console.log(places);
   let temp=places.filter((item) => {
     if(Number(item.rating)>rating) return item;
   });
   setFilteredPlaces(temp);
   // if(type === 'universities') setFilteredPlaces(places);
-  console.log(filteredPlaces);
-  if(filteredPlaces.length == 0 && rating!=0)
+  if(filteredPlaces.length === 0 && rating !== 0)
     setIsLoading(true);
     else{
       setIsLoading(false);
