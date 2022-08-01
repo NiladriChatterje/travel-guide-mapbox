@@ -4,12 +4,12 @@ import PlaceDetails from '../PlaceDetails/PlaceDetails';
 import Loader2 from '../Loader2/Loader2';
 import InputField from '../InputField/InputField';
 
-export default function List({places,setIsLoading,isLoading,setViewState,setIsInputfieldActive,setDivActive}){
+export default function List({places,isLoading,setViewState,setIsInputfieldActive}){
  
     return (
         <div className="List-container">
             <div className="sub-List-container">
-            <InputField setViewState={setViewState} setIsInputfieldActive={setIsInputfieldActive}/>
+            <InputField setViewState={setViewState} setIsInputfieldActive={setIsInputfieldActive} />
             <button onClick={e => {
                 let category=Array.from(document.getElementsByClassName('section'));
                 category[0].style.transform="translate(0,100px)";

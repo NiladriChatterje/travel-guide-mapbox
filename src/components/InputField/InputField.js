@@ -3,12 +3,14 @@ import "./InputField.css";
 import useInput from "../../hooks/useInput";
 
 const InputField = ({setViewState,setIsInputfieldActive}) => {
+  const [suggestionText,setSuggestionText] =React.useState(()=>'Search Here...')
   const address = useInput("");
+
 
   return (
     <div className="Wrapper">
       <input className="Input"
-        placeholder="Search Here..."
+        placeholder="Search Here...."
         {...address}
         isTyping={address.value !== ""}
       />
@@ -21,6 +23,7 @@ const InputField = ({setViewState,setIsInputfieldActive}) => {
                 onClick={() => {
                   address.setValue(suggestion.place_name);
                   setIsInputfieldActive(true);
+                  //setSuggestionText(Array.from(document.getElementsByClassName('Input')[0].textContent));
                   setViewState({latitude:suggestion.center[1],longitude:suggestion.center[0]})
                   address.setSuggestions([]);
                 }}

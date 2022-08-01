@@ -1,0 +1,43 @@
+.App-intro{
+    position: absolute;
+    background-color: white;
+    width:98vw;
+    left:5px;
+    top:-0px;
+    overflow: auto;
+    z-index: 100000;
+    height: 95vh;
+    transition: all;
+    transition-duration: 300ms;
+}
+.App-intro::-webkit-scrollbar{
+    display: none;
+}
+.Button-intro{
+    width:120px;
+    height:35px;
+    padding: 3px 10px;
+    font-weight:900;
+    position: fixed;
+    background-color: orange;
+    bottom:60px;
+    color: white;
+    right:20px;
+}
+
+@media all and (max-width:1200px){
+
+    .App-intro{
+        position: fixed;
+        background-color: white;
+        width:98.1vw;
+        left:0px;
+        top:-5px;
+        overflow: auto;
+        z-index: 700;
+        height: 100vh;
+        transition: all;
+        transition-duration: 300ms;
+    }
+
+}

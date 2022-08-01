@@ -5,6 +5,7 @@ import List from './components/List/List';
 import TypeDiv from './components/TypeDiv/TypeDiv';
 import getPlacesData from './axios/getPlacesData';
 import OfferList from './components/OfferList/OfferList'
+import Introduction from './components/Introduction/Introduction'
 
 function App() {
   const [viewState, setViewState] = React.useState({latitude: 22.6246939, longitude: 88.4888099});
@@ -94,7 +95,7 @@ React.useEffect(() => {
         if(zoom> 13 && zoom <=13.5){
           if(Number(data.latitude)>=viewState.latitude-0.0196 && Number(data.latitude)<=viewState.latitude+0.018835975)
           {
-            if(Number(data.longitude)<=viewState.longitude+0.0277 && Number(data.longitude)>=viewState.longitude-0.040200811)
+            if(Number(data.longitude)<=viewState.longitude+0.0277 && Number(data.longitude)>=viewState.longitude-0.036200811)
             {
               return data;
             }
@@ -163,9 +164,9 @@ React.useEffect(() => {
               }
             }}
         if(zoom> 13 && zoom <=13.5){
-          if(Number(data.latitude)>=viewState.latitude-0.0196 && Number(data.latitude)<=viewState.latitude+0.018835975)
+          if(Number(data.latitude)>=viewState.latitude-0.0196 && Number(data.latitude)<=viewState.latitude+0.017835975)
           {
-            if(Number(data.longitude)<=viewState.longitude+0.0397 && Number(data.longitude)>=viewState.longitude-0.040200811)
+            if(Number(data.longitude)<=viewState.longitude+0.0397 && Number(data.longitude)>=viewState.longitude-0.030200811)
             {
               return data;
             }
@@ -241,7 +242,7 @@ React.useEffect(() => {
   }
   else if(zoom>=13 && zoom<13.5)
   {
-    let viewState1 = {latitude: viewState.latitude-0.0196,longitude: viewState.longitude-0.040200811}
+    let viewState1 = {latitude: viewState.latitude-0.0196,longitude: viewState.longitude-0.038200811}
       let viewState2 = {latitude: viewState.latitude+0.018835975, longitude: viewState.longitude+0.0397}
 
        getPlacesData(type, viewState1, viewState2).then((res) =>(res)).then(data => {console.log(data);
@@ -267,7 +268,8 @@ React.useEffect(()=>{
 
 
   return (
-    <div >
+    <div className='FinalWrapper'>
+      <Introduction />
       <div className='heading-name'>
       <span >Traveli-</span><span>O</span></div>
     <TypeDiv setType={setType} setRating={setRating} setFilteredPlaces={setFilteredPlaces} />

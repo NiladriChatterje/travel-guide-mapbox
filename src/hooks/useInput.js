@@ -32,7 +32,6 @@ const useInput = (initialValue) => {
  const optimisedHandleChange=useCallback(debounce(handleChange),[])
 
   return {
-   
     onChange: optimisedHandleChange,
     setValue,
     suggestions,

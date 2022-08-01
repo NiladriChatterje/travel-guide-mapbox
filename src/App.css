@@ -6,12 +6,20 @@
   display: flex;
   justify-content: space-between;
 }
+.FinalWrapper{
+  overflow: clip;
+  padding-top: 10px;
+}
+.FinalWrapper::-webkit-scrollbar{
+  display: none;
+}
+
 .heading-name{
   display:flex;
   transition:all;
   transition-duration:500ms;
   position: absolute;
-  top:-20px;
+  top:20px;
   left:10%;
 
 }
@@ -57,6 +65,7 @@
     margin:auto;
     position:fixed;
     z-index:1;
+    top:-20px;
     padding-top:20px;
     left:0;
     width:100%;
