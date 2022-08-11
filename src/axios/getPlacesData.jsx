@@ -12,7 +12,7 @@ export default async function getPlacesData(type, viewState1, viewState2)
         limit:20,
       },
       headers: {
-        'x-rapidapi-key': 'e8343281e7mshfcb04d21d1ecdc2p11d587jsn1009e49ee984',
+        'x-rapidapi-key': 'b96ff35c83mshdf3bb05226725b0p1ac736jsn85225ef26b74',
         'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
       },
     });

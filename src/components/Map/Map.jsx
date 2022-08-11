@@ -5,7 +5,7 @@ import Loader from '../Loader/Loader';
 import Close from './close.png';
 
 
-const API_KEY='pk.eyJ1IjoibmlsYWRyaTIwMDAiLCJhIjoiY2w1cDU3Y2N1MDQ4cDNsbnFqN3hiMm1mNyJ9.M5eDdS0HFPq4HvHBj3ktLQ'
+const API_KEY='pk.eyJ1IjoibmlsYWRyaTIwMDAiLCJhIjoiY2wxNjF1OTNuMGJueTNjczF5MG12cmZ3OSJ9.-VogjFOddybGUgC8JuBVOw'
 const API_key_weather1 = '87e0714b96ca2e55e775907fa4d6972f';
 const API_key_weather2 = '39a874f4992883caf93f33961b899c1b';
 
@@ -112,8 +112,20 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
         </div>
         <span style={{width:'280px',height:'2px',borderRadius:'5px',backgroundColor:'orange'}}></span>
 
-        <div style={{display:'flex',flexDirection:'column'}}>
-            <span style={{fontWeight:'500', fontSize:'20px'}}>Pressure</span><span style={{fontWeight:'800',fontSize:'20px'}}>{String(weather.main.pressure)}milibar(mb)</span>
+        <div style={{display:'flex',justifyContent:'space-between',marginRight:'15px',marginTop:'4px'}}>
+            <span style={{fontWeight:'500', fontSize:'12px'}}>Pressure:</span><span style={{fontWeight:'800',fontSize:'10px'}}>{String(weather.main.pressure)}milibar(mb)</span>
+        </div>
+        
+        <div style={{display:'flex',justifyContent:'space-between',marginRight:'15px',marginTop:'4px'}}>
+            <span style={{fontWeight:'500', fontSize:'12px'}}>Humidity:</span><span style={{fontWeight:'800',fontSize:'10px'}}>{String(weather.main.humidity)}%</span>
+        </div>
+        
+        <div style={{display:'flex',justifyContent:'space-between',marginRight:'15px',marginTop:'4px'}}>
+            <span style={{fontWeight:'500', fontSize:'12px'}}>Wind Speed:</span><span style={{fontWeight:'800',fontSize:'10px'}}>{String(weather.wind.speed)}km/hr</span>
+        </div>
+        <span style={{width:'280px',height:'2px',borderRadius:'5px',backgroundColor:'orange'}}></span>
+        <div style={{display:'flex',justifyContent:'space-between',marginRight:'15px',marginTop:'4px'}}>
+            <span style={{fontWeight:'900', fontSize:'26px'}}>{weather?.weather[0]?.description}</span>
         </div></>:null}
         </div></>}
       <div className='lock' >
@@ -143,7 +155,7 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
         
         <div className="hidden-details-card">
           <div className="hidden-details-card-top">
-            {(data.photo ||data.photo?.images?.large?.url) &&<div
+            {(data.photo ||data.photo?.images?.large?.url || 'https://static.vecteezy.com/system/resources/thumbnails/003/413/275/small/traveling-with-friends-free-vector.jpg') &&<div
               style={{overflow:'hidden',cursor:'pointer',margin:'20px',display:'flex',justify:'center',height:'25vh'}}>
                 <img src={data.photo?.images?.large?.url || data.photo} alt="IMAGE__"  />
             </div>}
