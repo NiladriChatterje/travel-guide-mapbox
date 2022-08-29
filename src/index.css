@@ -6,6 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+*{
+  
+  -webkit-tap-highlight-color: transparent;
+  word-wrap: break-word;
+  scroll-behavior: smooth;
+  user-select: none;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

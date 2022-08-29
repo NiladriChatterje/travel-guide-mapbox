@@ -380,7 +380,7 @@ export default function MapBox({places, viewState,setViewState,timer,setTimer,se
       Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(1,1)';
     }}
     > <span style={{color:'white', fontWeight:'900',zIndex:-1}}>Ratings</span>
-        <div className="rating-submenu">
+        <div className="rating-submenu" >
           <div className="rating-items" onClick={(e)=>{e.stopPropagation();
         Array.from(document.getElementsByClassName('rating-submenu'))[0].style.visibility='hidden';
         Array.from(document.getElementsByClassName('rating-submenu'))[0].style.transform='scale(0,0)';
